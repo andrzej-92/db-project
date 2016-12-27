@@ -1,19 +1,43 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
+/**
+ * Dev routes
+ */
+Route::group(['prefix' => '_dev'], function () {
+    Route::get('/migrate', function () {
+        DB::listen(
+            function (\Illuminate\Database\Events\QueryExecuted $event) {
+                var_dump($event->sql);
+                if (str_contains($event->sql, 'create table')) {
+                    \Log::debug($event->sql);
+                }
+            }
+        );
+
+        return Artisan::call('migrate');
+    });
+
+    Route::get('/migrate-rollback', function () {
+        return Artisan::call('migrate:rollback');
+    });
+
+    Route::get('/ide-helper', function () {
+        return Artisan::call('ide-helper:generate');
+    });
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
-Route::resource('employers', "EmployeeController");
+/**
+ * Application main routes
+ */
+Route::group(['prefix' => 'sales', 'as' => 'sales.'], function () {
+    Route::get('/', 'SalesController@index')->name('all');
+});
+

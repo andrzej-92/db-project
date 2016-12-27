@@ -1,0 +1,35 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background: #2C3647;
+  color: #eee;
+
+  & > nav {
+    padding-top: 3rem;
+
+    & > ul {
+      margin:0;
+      padding:0;
+      list-style: none;
+      & > li {
+        & > a {
+          display:block;
+          padding: .8rem 1rem;
+          line-height: 20px;
+          font-size: .8rem;
+          font-weight: 300;
+          letter-spacing: 0.1em;
+
+          &:hover,
+          &.active {
+            color: #FFFFFF;
+            background-color: #273041;
+          }
+        }
+      }
+    }
+  }
+}
