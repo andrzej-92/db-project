@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (function_exists('oci_connect')) {
+            $this->app->register(\Yajra\Oci8\Oci8ServiceProvider::class);
+        }
+
+        if (\App::environment() == 'local' && class_exists(\Barryvdh\Debugbar\ServiceProvider::class)) {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 }

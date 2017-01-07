@@ -8,8 +8,14 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    @yield('content')
+    <div id="app">
+        @yield('content')
+    </div>
+    <script type="text/javascript">
+        window.Laravel = { csrfToken: '{{ csrf_token() }}' }
+    </script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </html>

@@ -1,6 +1,11 @@
 @extends('layouts.base')
 
 @section('content')
+
+    <div id="#app">
+        Loading...
+    </div>
+
     @if (isset($sales) && count($sales))
         @foreach($sales as $sale)
             <div class="employee-box">

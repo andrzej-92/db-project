@@ -2,8 +2,14 @@
 
 @section('content')
     @include('components.sidebar')
-
     <div class="content-wrapper">
-        <h3>Some content here !</h3>
+        <div class="header">
+            Zestawienie sumaryczne
+        </div>
+        <dashboard>
+            <div class="text-center">
+                <div class="loader"></div>
+            </div>
+        </dashboard>
     </div>
 @endsection

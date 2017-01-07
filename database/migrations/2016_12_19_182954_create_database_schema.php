@@ -9,7 +9,6 @@ class CreateDatabaseSchema extends Migration
     protected $moviesTable = 'movies';
     protected $showingTypesTable = 'showing_types';
     protected $showingsTable = 'showings';
-    protected $invoicesTable = 'invoices';
     protected $paymentTypesTable = 'payment_types';
     protected $statesTable = 'states';
     protected $citiesTable = 'cities';
@@ -26,19 +25,18 @@ class CreateDatabaseSchema extends Migration
      */
     public function up()
     {
-            $this->createMovieCategories();
-            $this->createMovies();
-            $this->createShowingsTypes();
-            $this->createShowings();
-            $this->createPaymentType();
-            $this->createInvoices();
-            $this->createStates();
-            $this->createCities();
-            $this->createCinemas();
-            $this->createYears();
-            $this->createMonths();
-            $this->createDays();
-            $this->createSales();
+        $this->createMovieCategories();
+        $this->createMovies();
+        $this->createShowingsTypes();
+        $this->createShowings();
+        $this->createPaymentType();
+        $this->createStates();
+        $this->createCities();
+        $this->createCinemas();
+        $this->createYears();
+        $this->createMonths();
+        $this->createDays();
+        $this->createSales();
     }
 
     /**
@@ -48,19 +46,18 @@ class CreateDatabaseSchema extends Migration
      */
     public function down()
     {
-            $this->dropSales();
-            $this->dropDays();
-            $this->dropMonths();
-            $this->dropYears();
-            $this->dropCinemas();
-            $this->dropCities();
-            $this->dropStates();
-            $this->dropInvoices();
-            $this->dropPaymentType();
-            $this->dropShowingsTypes();
-            $this->dropShowings();
-            $this->dropMovies();
-            $this->dropMovieCategories();
+        $this->dropSales();
+        $this->dropDays();
+        $this->dropMonths();
+        $this->dropYears();
+        $this->dropCinemas();
+        $this->dropCities();
+        $this->dropStates();
+        $this->dropPaymentType();
+        $this->dropShowings();
+        $this->dropShowingsTypes();
+        $this->dropMovies();
+        $this->dropMovieCategories();
     }
 
     private function createMovieCategories()
@@ -111,7 +108,7 @@ class CreateDatabaseSchema extends Migration
             $table->increments('id');
             $table->unsignedInteger('type_id');
             $table->unsignedInteger('movie_id');
-            $table->timestamp('start_at');
+            $table->time('start_at');
             $table->unsignedInteger('room_number');
 
             $table->foreign('type_id')->references('id')->on($this->showingTypesTable);
@@ -122,20 +119,6 @@ class CreateDatabaseSchema extends Migration
     private function dropShowings()
     {
         Schema::dropIfExists($this->showingsTable);
-    }
-
-    private function createInvoices()
-    {
-        Schema::create($this->invoicesTable, function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('number');
-            $table->float('amount');
-        });
-    }
-
-    private function dropInvoices()
-    {
-        Schema::dropIfExists($this->invoicesTable);
     }
 
     private function createStates()
@@ -171,10 +154,11 @@ class CreateDatabaseSchema extends Migration
     {
         Schema::create($this->cinemasTable, function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('state_id');
-            $table->string('name');
+            $table->unsignedInteger('city_id');
+            $table->string('name')->nullable();
+            $table->string('address');
 
-            $table->foreign('state_id')->references('id')->on($this->statesTable);
+            $table->foreign('city_id')->references('id')->on($this->citiesTable);
         });
     }
 
@@ -246,7 +230,6 @@ class CreateDatabaseSchema extends Migration
         Schema::create($this->salesTable, function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('showing_id');
-            $table->unsignedInteger('invoice_id');
             $table->unsignedInteger('day_id');
             $table->unsignedInteger('cinema_id');
             $table->unsignedInteger('payment_type_id');
@@ -256,7 +239,6 @@ class CreateDatabaseSchema extends Migration
             $table->unsignedInteger('ticket_count');
 
             $table->foreign('showing_id')->references('id')->on($this->showingsTable);
-            $table->foreign('invoice_id')->references('id')->on($this->invoicesTable);
             $table->foreign('day_id')->references('id')->on($this->daysTable);
             $table->foreign('cinema_id')->references('id')->on($this->cinemasTable);
             $table->foreign('payment_type_id')->references('id')->on($this->paymentTypesTable);

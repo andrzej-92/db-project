@@ -39,5 +39,8 @@ Route::get('/dashboard', function () {
  */
 Route::group(['prefix' => 'sales', 'as' => 'sales.'], function () {
     Route::get('/', 'SalesController@index')->name('all');
+    Route::get('/types', 'SalesController@types')->name('types');
+    Route::get('/dates', 'SalesController@dates')->name('dates');
+    Route::get('/places', 'SalesController@places')->name('places');
 });
 

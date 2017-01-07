@@ -1,3 +1,4 @@
+
 CREATE TABLE movies_category (
   id number(10, 0) NOT NULL,
   name varchar2(255) NOT NULL,

@@ -17,9 +17,9 @@ $brand-warning: #cbb956;
 $brand-danger:  #bf5329;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Gotham Light", sans-serif;
 $font-size-base: 14px;
-$line-height-base: 1.6;
+$line-height-base: 1.5;
 $text-color: #636b6f;
 
 // Navbar
@@ -35,3 +35,11 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+// Sidebar
+$sidebar-background-color: #fefefe;
+$sidebar-links-color: #fefefe;
+
+
+// Content
+$content-background-color: #ffffff;

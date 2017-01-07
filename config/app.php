@@ -166,7 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Yajra\Oci8\Oci8ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         //
 

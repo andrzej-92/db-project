@@ -8,5 +8,4 @@ class Sale extends Model
 {
     protected $table = 'sales';
 
-
 }
