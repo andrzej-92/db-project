@@ -26,7 +26,7 @@ class SalesRepository
             join days on sales.day_id = days.id
             join months on days.month_id = months.id
             join years on months.year_id = years.id
-          group by cities.name with rollup
+          group by rollup(cities.name)
         ');
     }
 }

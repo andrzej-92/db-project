@@ -108,7 +108,7 @@ class CreateDatabaseSchema extends Migration
             $table->increments('id');
             $table->unsignedInteger('type_id');
             $table->unsignedInteger('movie_id');
-            $table->time('start_at');
+            $table->string('start_at');
             $table->unsignedInteger('room_number');
 
             $table->foreign('type_id')->references('id')->on($this->showingTypesTable);
