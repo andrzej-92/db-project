@@ -14,6 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('dashboard', require('./components/Dashboard.vue'));
+Vue.component('types', require('./components/Types.vue'));
 
 const app = new Vue({
     el: '#app'

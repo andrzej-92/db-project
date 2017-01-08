@@ -66,3 +66,8 @@ a, a:active, a:focus, a:visited, a:hover {
   text-decoration: none;
   color: inherit;
 }
+
+canvas {
+  border: 0;
+  outline: 0;
+}

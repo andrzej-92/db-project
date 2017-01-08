@@ -37,7 +37,7 @@ class SalesSeeder extends Seeder
                 'ticket_count' => rand(1, 4),
             ];
 
-            if ($i % 300 == 0) {
+            if ($i % 1000 == 0) {
                 DB::table('sales')->insert($sales);
                 $sales = [];
             }

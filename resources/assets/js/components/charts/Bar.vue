@@ -49,8 +49,7 @@
         if (this.chartData) {
           this.renderChart(
             this.chartData,
-            Object.assign(this.defaultOptions, this.options),
-            'line'
+            Object.assign(this.defaultOptions, this.options)
           );
         }
       }

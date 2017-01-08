@@ -51,4 +51,47 @@ class SalesController
             ],
         ];
     }
+
+    public function allTypes()
+    {
+        $all = $this->salesRepository->getSalesRollUpByShowingType();
+        $eachSales = $this->salesRepository->getSalesRollUpByShowingTypeForEachCinema();
+
+        $cinemas = [];
+        $labels = [];
+        $counts = [];
+
+        foreach ($all as $item) {
+
+            if ($item->showing_type == 'ALL') {
+                continue;
+            }
+
+            $labels[] = $item->showing_type;
+            $counts['data'][] = $item->count;
+        }
+
+        foreach ($eachSales as $cinemaSale)
+        {
+            if ($cinemaSale->cinema == 'ALL') {
+                continue;
+            }
+
+            $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['netto'] = $cinemaSale->netto;
+            $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['brutto'] = $cinemaSale->brutto;
+            $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['count'] = $cinemaSale->count;
+        }
+
+        $cinemaLabels = [];
+        $cinemaCounts = [];
+        $cinemaAllData = [];
+
+        return [
+            'all' => [
+                'labels' => $labels,
+                'datasets' => [$counts]
+            ],
+            'cinemas' => $cinemaAllData
+        ];
+    }
 }

@@ -22,9 +22,22 @@ class SalesController extends Controller
 
     public function types()
     {
-        $sales = $this->salesRepository->getAllSales();
+        $sales = $this->salesRepository->getSalesRollUpByShowingType();
+        $eachSales = $this->salesRepository->getSalesRollUpByShowingTypeForEachCinema();
+        $cinemas = [];
 
-        return view('sales.types', compact('sales'));
+        foreach ($eachSales as $cinemaSale)
+        {
+            $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['netto'] = $cinemaSale->netto;
+            $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['brutto'] = $cinemaSale->brutto;
+            $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['count'] = $cinemaSale->count;
+        }
+
+        return view('sales.types', [
+            'sales' => $sales,
+            'eachSales' => $eachSales,
+            'cinemas' => $cinemas,
+        ]);
     }
 
     public function dates()

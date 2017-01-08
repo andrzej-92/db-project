@@ -18,13 +18,35 @@
     import { VueCharts } from 'vue-chartjs'
 
     export default VueCharts.Line.extend({
-        mixins: [VueCharts.mixins.reactiveProp],
-        props: ["chartData", "options", "title"],
+      mixins: [VueCharts.mixins.reactiveProp],
+      props: ["chartData", "options", "title"],
 
-        mounted () {
-          if (this.chartData) {
-            this.renderChart(this.chartData, this.options);
+      data () {
+        return {
+          defaultOptions: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                },
+                gridLines: {
+                  display: false
+                }
+              }],
+                xAxes: [ {
+                gridLines: {
+                  display: false
+                }
+              }]
+            }
           }
         }
+      },
+
+      mounted () {
+        if (this.chartData) {
+          this.renderChart(this.chartData,  Object.assign(this.defaultOptions, this.options));
+        }
+      }
     })
 </script>
