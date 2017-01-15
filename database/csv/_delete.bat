@@ -1,0 +1,1 @@
+sqlplus ed20/ed20 @_delete.sql

@@ -1,0 +1,12 @@
+delete from sales;
+delete from days;
+delete from months;
+delete from years;
+delete from cinemas;
+delete from cities;
+delete from states;
+delete from payment_types;
+delete from showings;
+delete from showing_types;
+delete from movies;
+delete from movies_category;

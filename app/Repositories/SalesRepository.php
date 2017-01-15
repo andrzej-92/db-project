@@ -35,7 +35,7 @@ class SalesRepository
           from sales
             join cinemas on sales.cinema_id = cinemas.id
             join cities on cinemas.city_id = cities.id
-          group by cities.name with rollup
+          group by rollup(cities.name)
         ');
     }
 
@@ -49,7 +49,7 @@ class SalesRepository
           from sales
             join showings on showings.id = sales.showing_id
             join showing_types on showings.type_id = showing_types.id
-          group by showing_types.name with rollup
+          group by rollup(showing_types.name)
         ');
     }
 
@@ -65,7 +65,7 @@ class SalesRepository
             join showings on showings.id = sales.showing_id
             join showing_types on showings.type_id = showing_types.id
             join cinemas on sales.cinema_id = cinemas.id
-          group by cinemas.name, showing_types.name with rollup
+          group by rollup(cinemas.name, showing_types.name)
         ');
     }
 }

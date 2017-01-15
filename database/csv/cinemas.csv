@@ -1,34 +1,33 @@
-"id","city_id","name","address"
-"1","1","Bydgoszcz","ul. Marszałka Focha 48, 85-070 Bydgoszcz"
-"2","2","Czechowice-Dziedzice","ul. Legionów 83, 43-502 Czechowice-Dziedzice"
-"3","3","Elbląg","ul. płk. Stanisława Dąbka 152, 82-300 Elbląg"
-"4","4","Gdańsk","Al. Zwycięstwa 14, 80-219 Gdańsk"
-"5","5","Gdynia","ul. Waszyngtona 21, 81-342 Gdynia"
-"6","6","Jaworzno","ul. Grunwaldzka 59, 43-600 Jaworzno"
-"7","7","Katowice","ul. 3 Maja 30, 40-097 Katowice"
-"8","8","Kielce","ul. Warszawska 26, 25-312 Kielce"
-"9","9","Koszalin","ul. Paderewskiego 1, 75-736 Koszalin"
-"10","10","Kraków","ul. Dobrego Pasterza 128, 31-416 Kraków"
-"11","11","Lublin","Al. Spółdzielczości Pracy 36, 20-147 Lublin"
-"12","12","Łódź","Al. Piłsudskiego 5, 90-368 Łódź"
-"13","13","Olsztyn","ul. Juliana Tuwima 26, 10-748 Olsztyn"
-"14","14","Poznań Malta","ul. Maltańska 1, 61-131 Poznań"
-"15","14","Poznań Multikino 51","ul. Królowej Jadwigi 51, 61-872 Poznań"
-"16","14","Poznań Stary Browar","ul. Półwiejska 42, 61-888 Poznań"
-"17","15","Radom","ul. Bolesława Chrobrego 1, 26-609 Radom"
-"18","16","Rumia","ul. Sobieskiego 14 A, 84-230 Rumia"
-"19","17","Rybnik","ul. Chrobrego 1, 44-200 Rybnik"
-"20","18","Rzeszów","ul. Kopisto 1, 35-315 Rzeszów"
-"21","19","Słupsk","ul. Szczecińska 58, 76-200 Słupsk"
-"22","20","Sopot","ul. Boh. Monte Cassino 63, 81-767 Sopot"
-"23","21","Szczecin","Al. Wyzwolenia 18-20, 70-554 Szczecin"
-"24","22","Tychy","al. Jana Pawła II 16/18, 43-100 Tychy"
-"25","23","Warszawa Targówek","ul. Głębocka 15, 03-287 Warszawa"
-"26","23","Warszawa Ursynów","Al. KEN 60, 02-777 Warszawa"
-"27","23","Warszawa Wola Park","ul. Górczewska 124, 01-460 Warszawa"
-"28","23","Warszawa Złote Tarasy","ul. Złota 59, 00-120 Warszawa"
-"29","24","Włocławek","ul. Pułaskiego 10-12, 87-800 Włocławek"
-"30","25","Wrocław Arkady","ul. Powstańców Śląskich 2-4, 53-333 Wrocław"
-"31","25","Wrocław Pasaż Grundwaldzki","pl. Grunwaldzki 22, 50-363 Wrocław"
-"32","26","Zabrze","ul. Gdańska 18, 41-800 Zabrze"
-"33","27","Zgorzelec","ul. Armii Krajowej 52a, 59-900 Zgorzelec"
+1,1,Bydgoszcz,ul. Marszałka Focha 48, 85-070 Bydgoszcz
+2,2,Czechowice-Dziedzice,ul. Legionów 83, 43-502 Czechowice-Dziedzice
+3,3,Elbląg,ul. płk. Stanisława Dąbka 152, 82-300 Elbląg
+4,4,Gdańsk,Al. Zwycięstwa 14, 80-219 Gdańsk
+5,5,Gdynia,ul. Waszyngtona 21, 81-342 Gdynia
+6,6,Jaworzno,ul. Grunwaldzka 59, 43-600 Jaworzno
+7,7,Katowice,ul. 3 Maja 30, 40-097 Katowice
+8,8,Kielce,ul. Warszawska 26, 25-312 Kielce
+9,9,Koszalin,ul. Paderewskiego 1, 75-736 Koszalin
+10,10,Kraków,ul. Dobrego Pasterza 128, 31-416 Kraków
+11,11,Lublin,Al. Spółdzielczości Pracy 36, 20-147 Lublin
+12,12,Łódź,Al. Piłsudskiego 5, 90-368 Łódź
+13,13,Olsztyn,ul. Juliana Tuwima 26, 10-748 Olsztyn
+14,14,Poznań Malta,ul. Maltańska 1, 61-131 Poznań
+15,14,Poznań Multikino 51,ul. Królowej Jadwigi 51, 61-872 Poznań
+16,14,Poznań Stary Browar,ul. Półwiejska 42, 61-888 Poznań
+17,15,Radom,ul. Bolesława Chrobrego 1, 26-609 Radom
+18,16,Rumia,ul. Sobieskiego 14 A, 84-230 Rumia
+19,17,Rybnik,ul. Chrobrego 1, 44-200 Rybnik
+20,18,Rzeszów,ul. Kopisto 1, 35-315 Rzeszów
+21,19,Słupsk,ul. Szczecińska 58, 76-200 Słupsk
+22,20,Sopot,ul. Boh. Monte Cassino 63, 81-767 Sopot
+23,21,Szczecin,Al. Wyzwolenia 18-20, 70-554 Szczecin
+24,22,Tychy,al. Jana Pawła II 16/18, 43-100 Tychy
+25,23,Warszawa Targówek,ul. Głębocka 15, 03-287 Warszawa
+26,23,Warszawa Ursynów,Al. KEN 60, 02-777 Warszawa
+27,23,Warszawa Wola Park,ul. Górczewska 124, 01-460 Warszawa
+28,23,Warszawa Złote Tarasy,ul. Złota 59, 00-120 Warszawa
+29,24,Włocławek,ul. Pułaskiego 10-12, 87-800 Włocławek
+30,25,Wrocław Arkady,ul. Powstańców Śląskich 2-4, 53-333 Wrocław
+31,25,Wrocław Pasaż Grundwaldzki,pl. Grunwaldzki 22, 50-363 Wrocław
+32,26,Zabrze,ul. Gdańska 18, 41-800 Zabrze
+33,27,Zgorzelec,ul. Armii Krajowej 52a, 59-900 Zgorzelec

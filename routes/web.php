@@ -10,7 +10,7 @@ Route::group(['prefix' => '_dev'], function () {
                 var_dump($event->sql);
                 if (str_contains($event->sql, 'create table')) {
                     \Log::debug($event->sql);
-                    file_put_contents(storage_path('oracle.sql'), $event->sql .PHP_EOL, FILE_APPEND);
+                    file_put_contents(storage_path('oracle_1.sql'), $event->sql .PHP_EOL, FILE_APPEND);
                 }
             }
         );
