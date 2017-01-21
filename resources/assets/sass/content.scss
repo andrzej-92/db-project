@@ -16,3 +16,22 @@
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #ccc;
 }
+
+.panel-title {
+  font-weight: bold;
+}
+
+.cinema-panel-stats {
+  font-size: 0.75rem;
+}
+
+.cinema-stats-row {
+  padding: .3rem 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.cinema-stats-box {
+  & h4 {
+    margin: 0;
+  }
+}

@@ -5,6 +5,34 @@
         <pie-chart v-if=all :chartData=all.data :title=all.title />
       </div>
     </div>
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-xs-12 col-md-6 col-lg-4 cinema-stats-box" v-for="cinema, key in cinemas">
+        <div class="panel panel-default">
+          <div class=panel-heading>
+            <h4 class="text-center">
+              {{ key == 'ALL' ? 'Całość: ' : key }}
+            </h4>
+          </div>
+
+          <div v-for="type, key in cinema">
+            <div class="row cinema-stats-row" style="margin: 0;">
+              <div class="col-xs-6 panel-title">
+                <h5> {{ key == 'ALL' ? 'W sumie: ' : key }}</h5>
+              </div>
+              <div class="col-xs-6 text-right cinema-panel-stats">
+                <div>
+                  <span>{{ type.brutto }} zł</span>
+                </div>
+                <div>
+                  <span>{{ type.count }} sztuk</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,7 +69,6 @@
             this.cinemas = data.cinemas;
 
             let backgroundColor = [];
-
             this.all.data.datasets.forEach((dataset) => {
               dataset.data.forEach(() => {
                 backgroundColor.push(randomHexColor());
@@ -50,10 +77,7 @@
               dataset.backgroundColor = backgroundColor;
               backgroundColor = [];
             })
-        })
-          .then(() => {
-            console.log(this.cinemas);
-          });
+        });
       }
     }
   }

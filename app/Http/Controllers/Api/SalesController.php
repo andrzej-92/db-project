@@ -81,16 +81,12 @@ class SalesController
             $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['count'] = $cinemaSale->count;
         }
 
-        $cinemaLabels = [];
-        $cinemaCounts = [];
-        $cinemaAllData = [];
-
         return [
             'all' => [
                 'labels' => $labels,
                 'datasets' => [$counts]
             ],
-            'cinemas' => $cinemaAllData
+            'cinemas' => $cinemas
         ];
     }
 }

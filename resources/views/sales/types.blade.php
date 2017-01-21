@@ -6,6 +6,7 @@
         <div class="header">
             Zestawienie wg. typów
         </div>
+        {{--Types Vue.js component --}}
         <types></types>
     </div>
 @endsection

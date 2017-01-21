@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Sale;
-use DB;
 
 class SalesRepository
 {
@@ -22,7 +21,7 @@ class SalesRepository
           from sales
             join cinemas on sales.cinema_id = cinemas.id
             join cities on cinemas.city_id = cities.id
-          group by (cities.name) with rollup;
+          group by rollup(cities.name)
         ');
     }
 
@@ -36,7 +35,7 @@ class SalesRepository
           from sales
             join showings on showings.id = sales.showing_id
             join showing_types on showings.type_id = showing_types.id
-          group by (showing_types.name) with rollup;
+          group by rollup(showing_types.name)
         ');
     }
 
@@ -46,12 +45,14 @@ class SalesRepository
           select round(sum(netto_price), 2) as netto, 
                  round(sum(brutto_price), 2) as brutto,
                  count(*) as count,
+                 COALESCE(showing_types.name, \'ALL\') as showing_type,
                  COALESCE(cinemas.name, \'ALL\') as cinema
           from sales
             join showings on showings.id = sales.showing_id
             join showing_types on showings.type_id = showing_types.id
             join cinemas on sales.cinema_id = cinemas.id
-          group by (cinemas.name ) with rollup
+          group by rollup(cinemas.name, showing_types.name)
+          order by cinema, showing_type, count
         ');
     }
 }
