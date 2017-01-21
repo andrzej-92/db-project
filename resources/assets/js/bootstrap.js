@@ -16,3 +16,8 @@ Vue.http.interceptors.push((request, next) => {
 
    next();
 });
+
+
+window.randomHexColor = () => {
+   return '#' + Math.floor(Math.random()*16777215).toString(16);
+};

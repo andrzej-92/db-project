@@ -54,18 +54,14 @@
             if (data.sales_count.datasets && data.sales_count.datasets.length) {
               data.sales_count.datasets.forEach((dataset) => {
                 dataset.data.forEach(() => {
-                  backgroundColor.push(this.randomHexColor());
+                  backgroundColor.push(randomHexColor());
                 })
               });
             }
 
             this.sales_count.data = data.sales_count;
             this.sales_count.data.datasets[0].backgroundColor = backgroundColor;
-          })
-      },
-
-      randomHexColor () {
-        return '#'+Math.floor(Math.random()*16777215).toString(16);
+          });
       }
     }
   }

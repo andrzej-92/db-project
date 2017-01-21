@@ -39,7 +39,21 @@
           .then(data => {
             this.all.data = data.all;
             this.cinemas = data.cinemas;
+
+            let backgroundColor = [];
+
+            this.all.data.datasets.forEach((dataset) => {
+              dataset.data.forEach(() => {
+                backgroundColor.push(randomHexColor());
+              });
+
+              dataset.backgroundColor = backgroundColor;
+              backgroundColor = [];
+            })
         })
+          .then(() => {
+            console.log(this.cinemas);
+          });
       }
     }
   }

@@ -71,8 +71,7 @@ class SalesController
             $counts['data'][] = $item->count;
         }
 
-        foreach ($eachSales as $cinemaSale)
-        {
+        foreach ($eachSales as $cinemaSale) {
             if ($cinemaSale->cinema == 'ALL') {
                 continue;
             }

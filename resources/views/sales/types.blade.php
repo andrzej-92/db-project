@@ -4,7 +4,7 @@
     @include('components.sidebar')
     <div class="content-wrapper">
         <div class="header">
-            Zestawienie wg. typów seansów
+            Zestawienie wg. typów
         </div>
         <types></types>
     </div>

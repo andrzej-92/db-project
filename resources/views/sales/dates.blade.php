@@ -9,16 +9,6 @@
         </div>
 
         @if (isset($sales) && count($sales))
-            @foreach($sales as $sale)
-                <div class="employee-box">
-                    <span>
-                        {{ $sale->netto_price }}
-                    </span>
-                    <span>
-                        {{ $sale->brutton_price }}
-                    </span>
-                </div>
-            @endforeach
         @else
             <h2>
                 Sorry, no sales found... ;(
