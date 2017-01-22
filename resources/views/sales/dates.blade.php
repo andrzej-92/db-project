@@ -7,14 +7,6 @@
         <div class="header">
             Zestawienie wg. przedziałów czasowych
         </div>
-
-        @if (isset($sales) && count($sales))
-        @else
-            <h2>
-                Sorry, no sales found... ;(
-            </h2>
-        @endif
+        <dates></dates>
     </div>
-
-
 @endsection

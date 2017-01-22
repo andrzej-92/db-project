@@ -1,11 +1,12 @@
 <template>
-  <div class="container-fluid">
+<div>
+  <div class="loader" v-if=!isLoaded></div>
+  <div class="container-fluid" v-if=isLoaded>
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
         <pie-chart v-if=all :chartData=all.data :title=all.title />
       </div>
     </div>
-
     <div class="row" style="margin-top: 20px;">
       <div class="col-xs-12 col-md-6 col-lg-4 cinema-stats-box" v-for="cinema, key in cinemas">
         <div class="panel panel-default">
@@ -14,7 +15,6 @@
               {{ key == 'ALL' ? 'Całość: ' : key }}
             </h4>
           </div>
-
           <div v-for="type, key in cinema">
             <div class="row cinema-stats-row" style="margin: 0;">
               <div class="col-xs-6 panel-title">
@@ -34,6 +34,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -50,7 +51,8 @@
           title: 'Typy seansów',
           data: {}
         },
-        cinemas: []
+        cinemas: [],
+        isLoaded: false
       }
     },
 
@@ -77,6 +79,10 @@
               dataset.backgroundColor = backgroundColor;
               backgroundColor = [];
             })
+
+            setTimeout(() => {
+              this.isLoaded = true;
+            }, 600);
         });
       }
     }

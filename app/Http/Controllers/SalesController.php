@@ -15,9 +15,7 @@ class SalesController extends Controller
 
     public function index()
     {
-        $sales = $this->salesRepository->getAllSales();
-
-        return view('sales.all', compact('sales'));
+        return view('sales.all');
     }
 
     public function types()
@@ -42,16 +40,12 @@ class SalesController extends Controller
 
     public function dates()
     {
-        $sales = $this->salesRepository->getAllSales();
-
-        return view('sales.dates', compact('sales'));
+        return view('sales.dates');
     }
 
     public function places()
     {
-        $sales = $this->salesRepository->getSalesRollUpByCity();
-
-        return view('sales.places', compact('sales'));
+        return view('sales.places');
     }
 
 

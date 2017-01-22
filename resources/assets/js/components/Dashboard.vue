@@ -1,14 +1,17 @@
 <template>
   <div class="container-expanded">
-    <line-chart :chartData=sales_value.data :options=sales_value.options :title=sales_value.title />
-    <bar-chart :chartData=sales_count.data :options=sales_count.options :title=sales_count.title />
+    <div class="loader" v-if=!isLoaded></div>
 
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
+    <div v-if=isLoaded>
+      <line-chart :chartData=sales_value.data :options=sales_value.options :title=sales_value.title />
+      <bar-chart :chartData=sales_count.data :options=sales_count.options :title=sales_count.title />
+
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
           <pie-chart :chartData=sales_count.data :options=sales_count.options :title=sales_count.title />
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -32,7 +35,8 @@
           title: 'Ilość sprzedaży',
           data: {},
           options: {}
-        }
+        },
+        isLoaded: false
       }
     },
 
@@ -62,6 +66,10 @@
             this.sales_count.data = data.sales_count;
             this.sales_count.data.datasets[0].backgroundColor = backgroundColor;
           });
+
+          setTimeout(() => {
+            this.isLoaded = true;
+          }, 600);
       }
     }
   }

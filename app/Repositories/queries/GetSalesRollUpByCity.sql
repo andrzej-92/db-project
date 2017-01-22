@@ -1,8 +1,9 @@
-select round(sum(netto_price), 2) as netto,
-       round(sum(brutto_price), 2) as brutto,
-       count(*) as count,
-       COALESCE(cities.name, 'ALL') as city
-from sales
-  join cinemas on sales.cinema_id = cinemas.id
-  join cities on cinemas.city_id = cities.id
-group by cities.name with rollup
+SELECT
+  COALESCE(CITIES.NAME, 'ALL') AS CITY,
+  round(sum(NETTO_PRICE), 2)   AS NETTO,
+  round(sum(BRUTTO_PRICE), 2)  AS BRUTTO,
+  count(*)                     AS COUNT
+FROM SALES
+  JOIN CINEMAS ON SALES.CINEMA_ID = CINEMAS.ID
+  JOIN CITIES ON CINEMAS.CITY_ID = CITIES.ID
+GROUP BY ROLLUP (CITIES.NAME)

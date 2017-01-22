@@ -3,56 +3,40 @@
 namespace App\Repositories;
 
 use App\Models\Sale;
+use File;
 
 class SalesRepository
 {
     public function getAllSales()
     {
-        return Sale::hydrateRaw(''.' select *  from sales');
+        return Sale::hydrateRaw("SELECT * FROM SALES");
     }
 
     public function getSalesRollUpByCity()
     {
-        return Sale::hydrateRaw(''.'
-          select round(sum(netto_price), 2) as netto, 
-                 round(sum(brutto_price), 2) as brutto,
-                 count(*) as count,
-                 COALESCE(cities.name, \'ALL\') as city
-          from sales
-            join cinemas on sales.cinema_id = cinemas.id
-            join cities on cinemas.city_id = cities.id
-          group by rollup(cities.name)
-        ');
+        $query = File::get(__DIR__ . '/queries/GetSalesRollUpByCity.sql');
+
+        return Sale::hydrateRaw($query);
     }
 
     public function getSalesRollUpByShowingType()
     {
-        return Sale::hydrateRaw(''.'
-          select round(sum(netto_price), 2) as netto, 
-                 round(sum(brutto_price), 2) as brutto,
-                 count(*) as count,
-                 COALESCE(showing_types.name, \'ALL\') as showing_type
-          from sales
-            join showings on showings.id = sales.showing_id
-            join showing_types on showings.type_id = showing_types.id
-          group by rollup(showing_types.name)
-        ');
+        $query = File::get(__DIR__ . '/queries/GetSalesRollUpByShowingType.sql');
+
+        return Sale::hydrateRaw($query);
     }
 
     public function getSalesRollUpByShowingTypeForEachCinema()
     {
-        return Sale::hydrateRaw(''.'
-          select round(sum(netto_price), 2) as netto, 
-                 round(sum(brutto_price), 2) as brutto,
-                 count(*) as count,
-                 COALESCE(showing_types.name, \'ALL\') as showing_type,
-                 COALESCE(cinemas.name, \'ALL\') as cinema
-          from sales
-            join showings on showings.id = sales.showing_id
-            join showing_types on showings.type_id = showing_types.id
-            join cinemas on sales.cinema_id = cinemas.id
-          group by rollup(cinemas.name, showing_types.name)
-          order by cinema, showing_type, count
-        ');
+        $query = File::get(__DIR__ . '/queries/GetSalesRollUpByShowingTypeForEachCinema.sql');
+
+        return Sale::hydrateRaw($query);
+    }
+
+    public function getSalesRollUpDate()
+    {
+        $query = File::get(__DIR__ . '/queries/GetSalesRollUpByDate.sql');
+
+        return Sale::hydrateRaw($query);
     }
 }

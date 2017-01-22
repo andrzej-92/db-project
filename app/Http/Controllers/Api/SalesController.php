@@ -56,7 +56,6 @@ class SalesController
     {
         $all = $this->salesRepository->getSalesRollUpByShowingType();
         $eachSales = $this->salesRepository->getSalesRollUpByShowingTypeForEachCinema();
-
         $cinemas = [];
         $labels = [];
         $counts = [];
@@ -81,12 +80,43 @@ class SalesController
             $cinemas[$cinemaSale->cinema][$cinemaSale->showing_type]['count'] = $cinemaSale->count;
         }
 
+        $cinemasCollection = collect($cinemas);
+
+        $cinemasCollection = $cinemasCollection->sortByDesc(function ($cinema) {
+            return $cinema['ALL']['brutto'];
+        });
+
         return [
             'all' => [
                 'labels' => $labels,
                 'datasets' => [$counts]
             ],
-            'cinemas' => $cinemas
+            'cinemas' => $cinemasCollection
+        ];
+    }
+
+    public function allByDates()
+    {
+        $sales = $this->salesRepository->getSalesRollUpDate();
+        $data = [];
+        $labels = [];
+
+        foreach ($sales as $sale) {
+            $data[$sale->year][$sale->month] = [
+                'netto' => (float) $sale->netto,
+                'brutto' => (float) $sale->brutto,
+                'ticket_count' => (int)  $sale->ticket_count,
+                'count' => (int) $sale->count
+            ];
+
+            $labels[$sale->year][] = "{$sale->month}";
+        }
+
+        return [
+            'all' => [
+                'labels' => $labels,
+                'years' => $data
+            ],
         ];
     }
 }
