@@ -1,27 +1,29 @@
 @extends('layouts.base')
 @section('content')
     @include('components.sidebar')
-    <div class="content-wrapper">
+    <div class="content-wrapper popular-content">
         <div class="header">
-            Zestawienie wg. przedziałów czasowych
+            Zestawienie najbardziej popularnych filmów względem kategorii
         </div>
-        <dates></dates>
-        @if(isset($ranks) && count($ranks))
-            @foreach($ranks as $year => $row)
+
+        <div class="">
+            @if(isset($ranks) && count($ranks))
+                @foreach($ranks as $category => $row)
                 <div class="">
-                    <h3>{{ $year }}</h3>
+                    <h3>{{ $category }}</h3>
                 </div>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-8">
-                                Miesiąc
+                                Film
                             </div>
                             <div class="col-xs-2">
-                                Wartość brutto
+                                Ilość biletów
                             </div>
                             <div class="col-xs-2">
-                                Podsumowanie
+                                Wartość Brutto
                             </div>
                         </div>
                     </div>
@@ -29,19 +31,21 @@
                         @foreach($row as $rank)
                             <div class="row">
                                 <div class="col-xs-8">
-                                    <span>{{ month_name($rank->month) }}</span>
+                                    <span>{{ $rank->movie }}</span>
                                 </div>
                                 <div class="col-xs-2">
-                                    <span>{{ number_format($rank->brutto_value, 2, ',', ' ') }}</span>
+                                    <span>{{ $rank->ticket_count }}</span>
                                 </div>
                                 <div class="col-xs-2">
-                                    <span>{{ number_format($rank->brutto_value_saldo, 2, ',', ' ') }}</span>
+                                    <span>{{ number_format($rank->brutto_value, 2, ',', ' ') }} zł</span>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
-            @endforeach
-        @endif
+
+                @endforeach
+            @endif
+        </div>
     </div>
 @endsection

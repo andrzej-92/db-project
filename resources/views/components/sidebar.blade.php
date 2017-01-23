@@ -26,6 +26,21 @@
                     Typy
                 </a>
             </li>
+            <li>
+                <a @if(is_active('sales.popular')) class="active" @endif href="{{ route('sales.popular') }}">
+                    Popularne
+                </a>
+            </li>
+            <li>
+                <a @if(is_active('sales.category')) class="active" @endif href="{{ route('sales.category') }}">
+                    Kategorie
+                </a>
+            </li>
+            <li>
+                <a @if(is_active('sales.payments')) class="active" @endif href="{{ route('sales.payments') }}">
+                    Płatności
+                </a>
+            </li>
         </ul>
     </nav>
 </aside>

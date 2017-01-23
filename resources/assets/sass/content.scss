@@ -35,3 +35,18 @@
     margin: 0;
   }
 }
+
+.panel-body {
+  padding-top: 0;
+  padding-bottom: 0;
+  & > .row {
+    padding: .7rem 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid $panel-default-border;
+    }
+  }
+}
+
+.font-bolder {
+  font-weight: bold;
+}

@@ -10951,4 +10951,21 @@ canvas {
   margin: 0;
 }
 
+.panel-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.panel-body > .row {
+  padding: .7rem 0;
+}
+
+.panel-body > .row:not(:last-child) {
+  border-bottom: 1px solid #d3e0e9;
+}
+
+.font-bolder {
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=app.css.map */

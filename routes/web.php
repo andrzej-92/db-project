@@ -52,5 +52,8 @@ Route::group(['prefix' => 'sales', 'as' => 'sales.'], function () {
     Route::get('/types', 'SalesController@types')->name('types');
     Route::get('/dates', 'SalesController@dates')->name('dates');
     Route::get('/places', 'SalesController@places')->name('places');
+    Route::get('/popular', 'SalesController@popular')->name('popular');
+    Route::get('/category', 'SalesController@category')->name('category');
+    Route::get('/payments', 'SalesController@payments')->name('payments');
 });
 
