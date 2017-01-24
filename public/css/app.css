@@ -10917,6 +10917,11 @@ canvas {
   background: #f5f5f5;
 }
 
+.sidebar > nav > ul > li > a .fa {
+  width: 20px;
+  font-size: 1.2em;
+}
+
 .content-wrapper {
   position: absolute;
   top: 0;

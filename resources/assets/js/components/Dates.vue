@@ -1,9 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row" v-for="chartData, key in chartsDataSets">
-      <div class="col-xs-12">
         <line-chart :chartData=chartData.data :title=chartData.year />
-      </div>
     </div>
   </div>
 </template>

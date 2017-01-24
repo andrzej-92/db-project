@@ -61,7 +61,7 @@ class SalesRepository
     }
 
     /**
-     * Tworzy zestawienie trzech najbardziej popularnych filmow (wzgledem ilosci sprzedanych biletow)
+     * Tworzy zestawienie pięciu najbardziej popularnych filmow (wzgledem ilosci sprzedanych biletow)
      * dla kazdej kategorii filmow
      *
      * @return \Illuminate\Database\Eloquent\Collection
